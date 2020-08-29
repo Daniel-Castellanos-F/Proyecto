@@ -71,6 +71,5 @@
 @section('scripts')
     <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{ asset('/js/appointments/Mapas.js')}}"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw=iniciarMap">
-    </script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw=iniciarMap"></script>
 @endsection
