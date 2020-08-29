@@ -50,10 +50,7 @@
                     <div class="col">
                       <div id="map" style="height: 400px; width: 400px">
 
-                        <!-- Clave API-->
-                        <!-- AIzaSyDTV2iNTn-PjD9VK5BMs8apRQiNyoMlAbs -->
-
-
+                      
 
                       </div>    
                     </div>
@@ -71,6 +68,5 @@
 @section('scripts')
     <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{ asset('/js/appointments/Mapas.js')}}"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw=iniciarMap">
-    </script>-->
+    
 @endsection
