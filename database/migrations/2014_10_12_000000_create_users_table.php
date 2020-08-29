@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             
-            $table->string('cedula');
+            $table->string('cedula')->nullable();
             $table->string('address')->nullable();
             $table->string('role'); //admin , instructor, usuario
 
