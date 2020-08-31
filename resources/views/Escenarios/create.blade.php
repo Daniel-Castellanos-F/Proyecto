@@ -48,14 +48,14 @@
                     </div>
 
                     <div class="col">
-                      <div id="map" style="height: 400px; width: 400px">
+                      
+                      <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 350px;">
+                        
+                             <!-- Clave API-->
+                        <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->
 
-                        <!-- Clave API-->
-                        <!-- AIzaSyDTV2iNTn-PjD9VK5BMs8apRQiNyoMlAbs -->
-
-
-
-                      </div>    
+                      </div>
+  
                     </div>
                   </div>                                             
 
@@ -69,7 +69,6 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-    <script src="{{ asset('/js/appointments/Mapas.js')}}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw=iniciarMap"></script>
+    <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw"></script>
 @endsection
