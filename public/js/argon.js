@@ -145,8 +145,8 @@ function initMap() {
 
     var myLatlng = new google.maps.LatLng(lat, lng);
     var mapOptions = {
-        zoom: 12,
-        scrollwheel: false,
+        zoom: 16,
+        scrollwheel: true,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":color},{"visibility":"on"}]}]
@@ -158,7 +158,7 @@ function initMap() {
         position: myLatlng,
         map: map,
         animation: google.maps.Animation.DROP,
-        title: 'Hello World!'
+        title: 'Escenario deportivo'
     });
 
     var contentString = '<div class="info-window-content"><h2>Argon Dashboard</h2>' +
@@ -173,9 +173,9 @@ function initMap() {
     });
 }
 
-if($map.length) {
+/*if($map.length) {
     google.maps.event.addDomListener(window, 'load', initMap);
-}
+}*/
 
 // //
 // // Headroom - show/hide navbar on scroll

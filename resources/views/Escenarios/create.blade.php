@@ -38,7 +38,13 @@
 
                         <div class="form-group">
                             <label for="address">Dirección</label>
-                            <input type="text" name="address" class="form-control" value="{{ old('address')}}" required>
+                            <input id="search" type="text" name="address" class="form-control" value="{{ old('address')}}" required>
+                            
+                            <div style="display: none;">
+                              <p id="latitud"></p>
+                              <p id="longitud"></p>
+                            </div>
+                            <input type="button" value="Buscar Dirección" onClick="getCoords()" style="margin-top: 10px">
                         </div>
                         
                         <div class="form-group">
@@ -48,19 +54,15 @@
                     </div>
 
                     <div class="col">
-                      
-                      <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 350px;">
-                        
-                             <!-- Clave API-->
-                        <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->
-
-                      </div>
-  
+                        <div id="map-canvas" class="map-canvas" data-lat="4.733199" data-lng="-74.262985" style="height: 350px;">
+                          <!-- Clave API-->
+                          <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->                     
+                        </div>                 
                     </div>
                   </div>                                             
 
                   <button type="submit" class="btn btn-primary">
-                   Guardar
+                    Guardar
                   </button>
              </form>
            </div>
@@ -69,6 +71,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>   
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw"></script>
+    <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw&callback=initMap"></script> 
+    <script src="{{ asset('/js/appointments/mapas.js')}}"></script>
 @endsection
