@@ -29,19 +29,23 @@ class ScheduleService implements ScheduleServiceInterface
 
     	]);
 
-    	if (!$workDay){
-    		return [];
-    	}
+    	if ($workDay){
+    		$morningIntervals = $this->getIntervals(
+                $workDay->morning_start, $workDay->morning_end,
+                $date, $escenarioId
+            );
 
-    	$morningIntervals = $this->getIntervals(
-    		$workDay->morning_start, $workDay->morning_end,
-    		$date, $escenarioId
-    	);
+            $afternoonIntervals = $this->getIntervals(
+                $workDay->afternoon_start, $workDay->afternoon_end,
+                $date, $escenarioId
+            );
+    	}else{
+            $morningIntervals = [];
+            $afternoonIntervals = [];
 
-    	$afternoonIntervals = $this->getIntervals(
-    		$workDay->afternoon_start, $workDay->afternoon_end,
-    		$date, $escenarioId
-    	);
+        }
+
+    	
 
     	$data =[];
     	$data['morning'] = $morningIntervals;
