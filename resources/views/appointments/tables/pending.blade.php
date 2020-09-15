@@ -30,11 +30,16 @@
           @if($role == 'admin')
 
               <a class="btn btn-sm btn-info" title="Ver reserva" href="{{ url('/appointments/'.$appointment->id) }}">Ver</a>
+              
               <form action="{{ url('/appointments/'.$appointment->id.'/confirm') }}" method="POST" class="d-inline-block">
                 @csrf
                 <button class="btn btn-sm btn-success" type="submit" title="Confirmar reserva">Confirmar</button>
               </form>
-              <a class="btn btn-sm btn-warning" title="Cancelar reserva" href="{{ url('/appointments/'.$appointment->id.'/cancel') }}">Cancelar</a>
+              
+              <form action="{{ url('/appointments/'.$appointment->id.'/cancel') }}" method="POST" class="d-inline-block">
+                @csrf
+                <button class="btn btn-sm btn-warning" type="submit" title="Cancelar reserva">Cancelar</button>
+              </form>
           @else
               <form action="{{ url('/appointments/'.$appointment->id.'/cancel') }}" method="POST" class="d-inline-block">
                 @csrf

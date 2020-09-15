@@ -28,6 +28,9 @@
                 <strong>Rol: </strong> {{ $appointment->user->role }}
               </li>
               <li>
+                <strong>Motivo: </strong> {{ $appointment->motivo }}
+              </li>
+              <li>
                 <strong>Estado </strong> 
                   @if($appointment->status == 'Cancelada')
                     <span class="badge badge-warning">Cancelada</span>

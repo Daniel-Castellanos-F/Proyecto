@@ -51,7 +51,6 @@ class AppointmentController extends Controller
     {
     	$escenarios = Escenario::all();
     	
-
         $date = old('schedule_date');
         $escenarioId = old('escenario_id');
         if($date && $escenarioId){
@@ -67,7 +66,8 @@ class AppointmentController extends Controller
     {
     	$rules =[
     		'escenario_id' => 'exists:escenarios,id',
-    		'schedule_time' => 'required'
+    		'schedule_time' => 'required',
+            'motivo' => 'required'
     	];
     	$messages =[
     		'schedule_time.required' => 'Por favor seleccione una hora valida para la reserva.'
@@ -104,7 +104,8 @@ class AppointmentController extends Controller
     	$data = $request->only([	
     		'escenario_id',
     		'schedule_date',
-    		'schedule_time'
+    		'schedule_time',
+            'motivo'
     	]);
     	$data['user_id'] = auth()->id();
     	$carbonTime = Carbon::createFromFormat('g:i A', $data['schedule_time']);

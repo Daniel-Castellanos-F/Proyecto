@@ -27,6 +27,8 @@ class CreateAppointmentsTable extends Migration
             $table->date('schedule_date');
             $table->time('schedule_time');
 
+            $table->string('motivo');
+
             $table->timestamps();
         });
     }

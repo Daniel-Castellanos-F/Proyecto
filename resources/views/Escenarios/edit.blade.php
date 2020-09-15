@@ -119,7 +119,7 @@
                                   <div class="row">
                                     <div class="col">
                                       <select class="form-control" name="morning_start[]">
-                                        @for ($i=6; $i<=11; $i++)
+                                        @for ($i=6; $i<=12; $i++)
                                           <option value="{{ ($i<10 ? '0' : '' ). $i }}:00" 
                                               @if($i.':00 AM' == $workDay->morning_start) selected @endif>
                                               {{ $i }}:00 AM
@@ -133,7 +133,7 @@
                                     </div>
                                     <div class="col">
                                       <select class="form-control" name="morning_end[]">
-                                        @for ($i=6; $i<=11; $i++)
+                                        @for ($i=6; $i<=12; $i++)
                                           <option value="{{ ($i<10 ? '0' : '' ). $i }}:00" 
                                             @if($i.':00 AM' == $workDay->morning_end) selected @endif>
                                             {{ $i }}:00 AM
@@ -151,7 +151,7 @@
                                 <div class="row">
                                     <div class="col">
                                       <select class="form-control" name="afternoon_start[]">
-                                        @for ($i=1; $i<=11; $i++)
+                                        @for ($i=1; $i<=7; $i++)
                                           <option value="{{ $i+12 }}:00"
                                               @if($i.':00 PM' == $workDay->afternoon_start) selected @endif>
                                               {{ $i }}:00 PM
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="col">
                                       <select class="form-control" name="afternoon_end[]">
-                                        @for ($i=1; $i<=11; $i++)
+                                        @for ($i=1; $i<=7; $i++)
                                           <option value="{{ $i+12 }}:00"
                                             @if($i.':00 PM' == $workDay->afternoon_end) selected @endif>
                                             {{ $i }}:00 PM

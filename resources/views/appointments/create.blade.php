@@ -29,16 +29,21 @@
 
               <form action="{{ url('appointments')}}" method="post">
                 @csrf
-                 <div class="form-group">
+                  <div class="form-group">
                    <label for="escenario">Escenario</label>
                       <select name="escenario_id" id="escenario" class="form-control" required>
                         @foreach($escenarios as $escenario)
                           <option value="{{ $escenario->id }}" @if( old('escenario_id') == $escenario->id) selected @endif> {{$escenario->name}} </option>
                         @endforeach
                       </select>
-                 </div>
+                  </div>
 
-                 <div class="form-group">
+                  <div class="form-group">
+                      <label for="motivo">Por favor cuéntanos el motivo de la reserva</label>
+                      <textarea required id="motivo" name="motivo" rows="3" class="form-control"> </textarea>
+                  </div>
+
+                  <div class="form-group">
                    <label for="">Fecha</label>
                    <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
@@ -51,10 +56,10 @@
                     data-date-format="yyyy-mm-dd" 
                     data-date-start-date="{{date('Y-m-d')}}" 
                     data-date-end-date="+20d">
-                   </div>  
-                                      
-                 </div>
-                 <div class="form-group">
+                   </div>                      
+                  </div>
+
+                  <div class="form-group">
                    <label for="">Hora de reserva</label>
                       <div id="hours">
                         @if ($intervals)

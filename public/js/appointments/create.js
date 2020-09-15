@@ -13,7 +13,7 @@ $(function () {
     $date.change( () =>{
       const escenarioId = $escenario.val();
       const selectedDate = $date.val();
-      const url = `/schedule/hours?date=${selectedDate}&escenario_id=${escenarioId}`;
+      const url = `/api/schedule/hours?date=${selectedDate}&escenario_id=${escenarioId}`;
       $.getJSON(url, displayHours);           
     });
 
