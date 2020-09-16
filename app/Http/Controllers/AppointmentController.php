@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Escenario;
 use App\Appointment;
 use App\CancellAppointment;
+use App\Http\Requests\StoreAppointment;
 use Carbon\Carbon;
 use Validator;
 use App\Interfaces\ScheduleServiceInterface;
@@ -62,58 +63,17 @@ class AppointmentController extends Controller
         return view('appointments.create',compact('escenarios','intervals'));
     }
      
-    public function store(Request $request, ScheduleServiceInterface $scheduleService)
+    public function store(StoreAppointment $request)
     {
-    	$rules =[
-    		'escenario_id' => 'exists:escenarios,id',
-    		'schedule_time' => 'required',
-            'motivo' => 'required'
-    	];
-    	$messages =[
-    		'schedule_time.required' => 'Por favor seleccione una hora valida para la reserva.'
-    	];
+    			
+        $created = Appointment::createForUsuario($request, auth()->id());
 
-
-    	$validator = Validator::make($request->all(), $rules, $messages);
-
-        $validator->after(function($validator) use ($request, $scheduleService){
-            
-            $date = $request->input('schedule_date');
-            $escenarioId = $request->input('escenario_id'); 
-            $schedule_time = $request->input('schedule_time'); 
-
-            if($date && $escenarioId && $schedule_time){
-                    $start = new Carbon($schedule_time);
-            }else{
-                return;
-            }
-
-            if(!$scheduleService->isAvailableInterval($date, $escenarioId, $start)){
-                $validator->errors()->add('available_time', 'La Hora ya se enceuntra reservada.');
-            }
-
-        });
-
-
-
-        if ($validator->fails()){
-            return back()->withErrors($validator)->withInput();
-        }
-
-
-    	$data = $request->only([	
-    		'escenario_id',
-    		'schedule_date',
-    		'schedule_time',
-            'motivo'
-    	]);
-    	$data['user_id'] = auth()->id();
-    	$carbonTime = Carbon::createFromFormat('g:i A', $data['schedule_time']);
-		$data['schedule_time'] = $carbonTime->format('H:i:s');
-		Appointment::create($data);
-
-    	$notification  = 'La reserva se registro correctamente!';
-    	return back()->with(compact('notification'));
+        if ($created)
+            $notification  = 'La reserva se registro correctamente!'; 
+        else
+            $notification  = 'Ocurrio un problema al registrar la reserva!';
+    	
+        return back()->with(compact('notification'));
     }
 
     public function showCancelForm(Appointment $appointment)

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class Appointment extends Model
 {
@@ -44,4 +45,20 @@ class Appointment extends Model
 			->format('g:i A');
     }
 
+    static public function createForUsuario(Request $request, $usuarioId)
+    {
+        $data = $request->only([    
+            'escenario_id',
+            'schedule_date',
+            'schedule_time',
+            'motivo'
+        ]);
+
+        $data['user_id'] = $usuarioId;
+
+        $carbonTime = Carbon::createFromFormat('g:i A', $data['schedule_time']);
+        $data['schedule_time'] = $carbonTime->format('H:i:s');
+
+        return self::create($data);
+    }
 }
