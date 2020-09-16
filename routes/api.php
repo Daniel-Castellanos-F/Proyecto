@@ -1,6 +1,8 @@
 <?php
 
 Route::post('/login', 'AuthController@login');
+Route::post('/register', 'AuthController@register');
+
 
 // JSON public resources
 Route::get('/Escenarios', 'EscenarioController@index');

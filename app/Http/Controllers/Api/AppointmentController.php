@@ -10,18 +10,7 @@ use App\Http\Requests\StoreAppointment;
 
 class AppointmentController extends Controller
 {
-	/*
-		"id",
-        "escenario_id",
-        "user_id",
-        "schedule_date",
-        "schedule_time",
-        "motivo",
-        "created_at",
-        "updated_at",
-        "status",
-	*/
-
+	
     public function index()
     {
     	$user = Auth::guard('api')->user();
