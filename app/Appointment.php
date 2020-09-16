@@ -16,6 +16,13 @@ class Appointment extends Model
 
     ];
 
+    protected $hidden =[
+        'escenario_id', 'schedule_time'
+    ];
+    protected $appends =[
+        'schedule_time_12'
+    ];
+
     //acceder desde un appointment a un escenario
     public function escenario(){
     	return $this->belongsTo(Escenario::class);
