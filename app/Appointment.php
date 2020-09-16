@@ -14,7 +14,6 @@ class Appointment extends Model
         'motivo',
     	'schedule_date',
     	'schedule_time'
-
     ];
 
     protected $hidden =[
