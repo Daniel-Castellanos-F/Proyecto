@@ -28,6 +28,9 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function() {
 	Route::get('/schedule', 'ScheduleController@edit');
 	Route::post('/schedule', 'ScheduleController@store');
 
+   	//Fcm
+   	Route::post('/fcm/send', 'FirebaseController@sendAll');
+
 });
 Route::middleware('auth')->group(function() {
 	Route::get('/appointments/create','AppointmentController@create');

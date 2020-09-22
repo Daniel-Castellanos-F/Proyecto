@@ -962,10 +962,10 @@ var OrdersChart = (function() {
 				}
 			},
 			data: {
-				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				labels: ['Lun', 'Mar', 'Mie', 'Jev', 'Vie', 'Sáb', 'Dom'],
 				datasets: [{
-					label: 'Sales',
-					data: [25, 20, 30, 22, 17, 29]
+					label: 'Reservas',
+					data: [25, 20, 30, 22, 17, 29,50]
 				}]
 			}
 		});
