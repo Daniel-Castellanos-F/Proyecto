@@ -49,7 +49,7 @@
                     </div>
                     <div class="col">
                         <div class="col">
-                        <div id="map-canvas" class="map-canvas" data-lat="4.733199" data-lng="-74.262985" style="height: 350px;">
+                        <div id="map-canvas" class="map-canvas" data-lat="4.7343337" data-lng="-74.26264429999999" style="height: 350px;">
                           <!-- Clave API-->
                           <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->                     
                         </div>                 
