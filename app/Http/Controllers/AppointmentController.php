@@ -97,18 +97,25 @@ class AppointmentController extends Controller
         }
 
         $appointment->status = 'Cancelada';
-        $appointment->save();
+        $saved = $appointment->save();
 
-        $notification = 'La reserva se ha cancelado correctamenta';
+        if ($saved)
+            $appointment->user->sendFCM('Su reserva se ha cancelado!');
+
+        $notification = 'La reserva se ha cancelado correctamente';
         return redirect('/appointments')->with(compact('notification'));
     }	
 
     public function postConfirm(Appointment $appointment)
     {
         $appointment->status = 'Confirmada';
-        $appointment->save();
+        $saved = $appointment->save();
 
-        $notification = 'La reserva se ha Confirmada correctamenta';
+        if ($saved)
+            $appointment->user->sendFCM('Su reserva se ha confirmado!');
+
+        
+        $notification = 'La reserva se ha Confirmado correctamente';
         return redirect('/appointments')->with(compact('notification'));
     }
 }
