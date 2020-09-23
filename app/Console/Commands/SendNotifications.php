@@ -35,23 +35,23 @@ class SendNotifications extends Command
 
         $headers = ['id', 'schedule_date', 'schedule_time', 'user_id'];
 
-        $appointmentsTomorrow = $this->getAppointments24Hours($now);
+        $appointmentsTomorrow = $this->getAppointments24Hours($now->copy());
 
         foreach ($appointmentsTomorrow as $appointment){
-            $appointment->users->sendFCM('No olvides tu reserva mañana a esta hora');
+            $appointment->user->sendFCM('No olvides tu reserva mañana a esta hora');
             $this->info('Mensaje FCM enviado 24h antes al usuario (ID):' . $appointment->user_id);
         }
 
-        $this->table($headers, $appointmentsTomorrow);
+        $this->table($headers, $appointmentsTomorrow->toArray());
 
-        $appointmentsNextHour = $this->getAppointmentsNextHour($now);
+        $appointmentsNextHour = $this->getAppointmentsNextHour($now->copy());
 
         foreach ($appointmentsNextHour as $appointment){
-            $appointment->users->sendFCM('Tienes una reserva en 1 hora. Te esperamos.');
+            $appointment->user->sendFCM('Tienes una reserva en 1 hora. Te esperamos.');
             $this->info('Mensaje FCM enviado faltando 1h antes al usuario (ID):' . $appointment->user_id);
         }
 
-        $this->table($headers, $appointmentsNextHour);
+        $this->table($headers, $appointmentsNextHour->toArray());
     }
 
     private function getAppointments24Hours($now)
@@ -60,7 +60,7 @@ class SendNotifications extends Command
             ->where('schedule_date', $now->addDay()->toDateString())
             ->where('schedule_time', '>=', $now->copy()->subMinutes(3)->toTimeString())
             ->where('schedule_time', '<', $now->copy()->addMinutes(2)->toTimeString())
-            ->get(['id', 'schedule_date', 'schedule_time', 'user_id'])->toArray();
+            ->get(['id', 'schedule_date', 'schedule_time', 'user_id']);
     }
 
     private function getAppointmentsNextHour($now)
@@ -69,6 +69,6 @@ class SendNotifications extends Command
             ->where('schedule_date', $now->addHour()->toDateString())
             ->where('schedule_time', '>=', $now->copy()->subMinutes(3)->toTimeString())
             ->where('schedule_time', '<', $now->copy()->addMinutes(2)->toTimeString())
-            ->get(['id', 'schedule_date', 'schedule_time', 'user_id'])->toArray();
+            ->get(['id', 'schedule_date', 'schedule_time', 'user_id']);
     }
 }
