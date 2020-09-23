@@ -25,15 +25,15 @@ class SendNotifications extends Command
      */
     public function handle()
     {
-        
-
-        $this->info('Buscando reservas confirmadas en las próximas 24 horas.');
+        $this->info('Buscando reservas confirmadas');
         //hora actual
         //2020-09-23 14:00:00
         $now = Carbon::now();
 
         // schedule_date 2020-09-24
         // schedule_time 15:00:00
+
+        $headers = ['id', 'schedule_date', 'schedule_time', 'user_id'];
 
         $appointmentsTomorrow = $this->getAppointments24Hours($now);
 
@@ -42,12 +42,16 @@ class SendNotifications extends Command
             $this->info('Mensaje FCM enviado 24h antes al usuario (ID):' . $appointment->user_id);
         }
 
+        $this->table($headers, $appointmentsTomorrow);
+
         $appointmentsNextHour = $this->getAppointmentsNextHour($now);
 
         foreach ($appointmentsNextHour as $appointment){
             $appointment->user->sendFCM('Tienes una reserva en 1 hora. Te esperamos.');
             $this->info('Mensaje FCM enviado faltando 1h antes al usuario (ID):' . $appointment->user_id);
         }
+
+        $this->table($headers, $appointmentsNextHour);
     }
 
     private function getAppointments24Hours($now)
