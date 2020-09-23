@@ -22,7 +22,6 @@ class ScheduleController extends Controller
         $date = $request->input('date');
     	$escenarioId = $request->input('escenario_id');
 
-
         return $scheduleService->getAvailableIntervals($date, $escenarioId);
     	
     }

@@ -15,7 +15,7 @@ class ScheduleService implements ScheduleServiceInterface
 				->where('schedule_date', $date )
 				->where('schedule_time', $start->format('H:i:s'))
 				->exists();
-		return !$exists; // Estara disponbible si no hay fecha eservada
+		return !$exists; // Estara disponbible si no hay fecha reservada
   	}
 
 	public function getAvailableIntervals($date, $escenarioId)
@@ -25,27 +25,34 @@ class ScheduleService implements ScheduleServiceInterface
     	->where('escenario_id', $escenarioId)
     	->first([
     		'morning_start', 'morning_end',
-    		'afternoon_start', 'afternoon_end'
+    		'afternoon_start', 'afternoon_end',
+            'receso'
 
     	]);
 
+        //dd($workDay);
+
     	if ($workDay){
     		$morningIntervals = $this->getIntervals(
-                $workDay->morning_start, $workDay->morning_end,
-                $date, $escenarioId
+                $workDay->morning_start, 
+                $workDay->morning_end,
+                $date, 
+                $escenarioId,
+                $workDay->receso
             );
 
             $afternoonIntervals = $this->getIntervals(
-                $workDay->afternoon_start, $workDay->afternoon_end,
-                $date, $escenarioId
+                $workDay->afternoon_start, 
+                $workDay->afternoon_end,
+                $date, 
+                $escenarioId,
+                $workDay->receso
             );
     	}else{
             $morningIntervals = [];
             $afternoonIntervals = [];
 
         }
-
-    	
 
     	$data =[];
     	$data['morning'] = $morningIntervals;
@@ -55,15 +62,15 @@ class ScheduleService implements ScheduleServiceInterface
 
 	private function  getDayFromDate($date)
   	{
-  		
     	$dateCarbon = new Carbon($date);
     	$i = $dateCarbon->dayOfWeek;
     	$day = ($i==0 ? 6: $i-1);
     	return $day;
   	}
 
-	private function getIntervals($start, $end, $date, $escenarioId){
-    	$start = new Carbon($start);
+	private function getIntervals($start, $end, $date, $escenarioId, $receso){ //agregar receso
+    	//dd($start, $end, $date, $escenarioId, $receso);
+        $start = new Carbon($start);
     	$end = new Carbon($end);
 
     	$intervals = [];
@@ -79,12 +86,12 @@ class ScheduleService implements ScheduleServiceInterface
     		$start->addMinutes(60);
     		$interval['end'] = $start->format('g:i A');
 
-    		
     		if($available){
     			$intervals [] = $interval;
     		}
-    		
+    		$start->addMinutes($receso);
     	}
     	return $intervals;
+        
     }
 }

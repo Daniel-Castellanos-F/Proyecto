@@ -17,7 +17,8 @@ class WorkDay extends Model
      	'afternoon_start',
      	'afternoon_end',
      	
-     	'escenario_id'
+     	'escenario_id',
+        'receso'
 
     ];
 }
