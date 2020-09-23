@@ -38,7 +38,7 @@ class SendNotifications extends Command
         $appointmentsTomorrow = $this->getAppointments24Hours($now);
 
         foreach ($appointmentsTomorrow as $appointment){
-            $appointment->user->sendFCM('No olvides tu reserva mañana a esta hora');
+            $appointment->users->sendFCM('No olvides tu reserva mañana a esta hora');
             $this->info('Mensaje FCM enviado 24h antes al usuario (ID):' . $appointment->user_id);
         }
 
@@ -47,7 +47,7 @@ class SendNotifications extends Command
         $appointmentsNextHour = $this->getAppointmentsNextHour($now);
 
         foreach ($appointmentsNextHour as $appointment){
-            $appointment->user->sendFCM('Tienes una reserva en 1 hora. Te esperamos.');
+            $appointment->users->sendFCM('Tienes una reserva en 1 hora. Te esperamos.');
             $this->info('Mensaje FCM enviado faltando 1h antes al usuario (ID):' . $appointment->user_id);
         }
 
