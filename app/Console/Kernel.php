@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $filePath = storege_path('logs/fcm_send.log');
+        $filePath = storage_path('logs/fcm_send.log');
 
          $schedule->command('fcm:send')
                 ->everyFiveMinutes()
