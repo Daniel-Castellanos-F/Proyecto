@@ -33,7 +33,7 @@
                            <div>
                               <!-- <p id="latitud"></p>
                               <p id="longitud"></p>-->
-                               <input id="latitud" name="latitud">
+                              <input id="latitud" name="latitud">
                               <input id="longitud" name="longitud"> 
                             </div>
                             <input type="button" value="Buscar Dirección" onClick="getCoords()" style="margin-top: 10px">
@@ -204,6 +204,6 @@
 
 @section('scripts')
     <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>    
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw&callback=initMap"></script> 
     <script src="{{ asset('/js/appointments/mapas.js')}}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw&callback=initMap"></script>     
 @endsection

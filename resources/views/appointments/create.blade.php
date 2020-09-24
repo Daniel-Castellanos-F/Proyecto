@@ -2,7 +2,7 @@
 
 @section('content')
 
-   <div class="card shadow">
+  <div class="card shadow">
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
@@ -16,7 +16,7 @@
               </div>
             </div>
            
-           <div class="card-body">
+            <div class="card-body">
               @if ($errors->any())
                 <div class="alert alert-warning" role="alert">
                   <ul>
@@ -27,11 +27,12 @@
                 </div>
               @endif
 
-              <div class="row">
+              <div class="card-body">
                 <!-- formulario -->
-                <div class="col">
-                  <form action="{{ url('appointments')}}" method="post">
-                      @csrf
+                <form action="{{ url('appointments')}}" method="post">
+                    @csrf
+                    <div class="row">
+                      <div class="col">
                         <div class="form-group">
                          <label for="escenario">Escenario</label>
                             <select name="escenario_id" id="escenario" class="form-control" required>
@@ -90,29 +91,32 @@
                               
                         </div>
 
-                       <button type="submit" class="btn btn-primary">
-                         Guardar
-                       </button>
-                   </form>
-                </div>
+                        <button type="submit" class="btn btn-primary">
+                          Guardar
+                        </button>
+                      </div>
+                      <!-- Mapa -->
+                      <div class="col">
+                        <div id="map-canvas" class="map-canvas" data-lat="{{ $escenario->latitud }}" data-lng="{{ $escenario->longitud }}" style="height: 350px;">
+                                <!-- Clave API-->
+                                <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->                     
+                        </div>  
+                      </div>
+                      <!-- Fin Mapa -->
+                    </div>
+                </form>                 
+              </div>         
+            </div>
 
-                <!-- Mapa -->
-                <div class="col">
-                  <div id="map-canvas" class="map-canvas" data-lat="4.7343337" data-lng="-74.26264429999999" style="height: 350px;">
-                          <!-- Clave API-->
-                          <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->                     
-                  </div>  
-                </div>
-                <!-- Fin Mapa -->
-              </div>     
-           </div>
-          </div>
+
+
+  </div>
 
 @endsection
 
 @section('scripts')
     <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{ asset('/js/appointments/create.js')}}"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw&callback=initMap"></script> 
     <script src="{{ asset('/js/appointments/mapas.js')}}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw&callback=initMap"></script>    
 @endsection

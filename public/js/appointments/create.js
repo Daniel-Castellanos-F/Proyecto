@@ -9,6 +9,8 @@ $(function () {
 
     const $date = $('#date');
     const $escenario = $('#escenario');
+    
+    
 
     $date.change( () =>{
       const escenarioId = $escenario.val();
