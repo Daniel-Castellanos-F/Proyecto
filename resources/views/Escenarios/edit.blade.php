@@ -31,10 +31,10 @@
                            <input id="search" type="text" name="address" class="form-control" value="{{ old('address', $Escenario->address) }}" required>
 
                            <div>
-                              <p id="latitud"></p>
-                              <p id="longitud"></p>
-                              <!-- <input id="latitud" name="latitud">
-                              <input id="longitud" name="longitud"> -->
+                              <!-- <p id="latitud"></p>
+                              <p id="longitud"></p>-->
+                               <input id="latitud" name="latitud">
+                              <input id="longitud" name="longitud"> 
                             </div>
                             <input type="button" value="Buscar Dirección" onClick="getCoords()" style="margin-top: 10px">
 

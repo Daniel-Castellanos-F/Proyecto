@@ -1,5 +1,5 @@
 function getCoords(){
-
+         
 var geocoder = new google.maps.Geocoder();
 
 address = document.getElementById('search').value;
@@ -12,8 +12,8 @@ if(address!='')
         if (status == 'OK')
           {
             // Mostramos las coordenadas obtenidas en el p con id coordenadas
-            document.getElementById("latitud").innerHTML = results[0].geometry.location.lat();
-            document.getElementById("longitud").innerHTML = results[0].geometry.location.lng();
+            document.getElementById("latitud").value = results[0].geometry.location.lat();
+            document.getElementById("longitud").value = results[0].geometry.location.lng();
             // mio
             map = document.getElementById('map-canvas');
             lat = results[0].geometry.location.lat();
