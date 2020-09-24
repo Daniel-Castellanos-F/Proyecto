@@ -117,6 +117,6 @@
 @section('scripts')
     <script src="{{ asset('/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{ asset('/js/appointments/create.js')}}"></script>
-    <script src="{{ asset('/js/appointments/mapas.js')}}"></script>
+    <script src="{{ asset('/js/appointments/MyCreateMaps.js')}}"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw&callback=initMap"></script>    
 @endsection
