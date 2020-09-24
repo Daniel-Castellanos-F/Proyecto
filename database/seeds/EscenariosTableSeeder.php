@@ -13,19 +13,25 @@ class EscenariosTableSeeder extends Seeder
     public function run()
     {
         Escenario::create([
-            'name' => 'Pista de patinaje',
-            'description' => 'Pista donde se puede practicar el deporte del patinaje de forma profecional',
-            'address' => 'Calle 12 A # 2-32'
+            'name' => 'Coliseo cubierto principal',
+            'description' => 'Escenario deportivo que se encuentra en el centro del municipio abierto al publico en general para la practica de actividades deportivas,',
+            'address' => 'Cra. 7 #8-45 madrid. cundinamarca',
+            'longitud' => '-74.26264429999999',
+            'latitud' => '4.7343337'
         ]);
         Escenario::create([
-            'name' => 'micro--futbol',
-            'description' => 'Escenario deportivo que se encuentra en el centro del municipio abierto al publico en general para la practica de actividades deportivas, abierto entre las 8am y 7pm.',
-            'address' => 'Calle 12 A # 2-32'
+            'name' => 'Polideportivo Guatamala',
+            'description' => 'Escenario deportivo para la practica de actividades deportivas, abierto entre las 8am y 5pm.',
+            'address' => 'Cra. 6 #19-1, Madrid, Cundinamarca',
+            'longitud' => '-74.25573229999999',
+            'latitud' => '4.737922500000001'
         ]);
         Escenario::create([
-            'name' => 'Piscina los Azulejos',
-            'description' => 'Piscina para el aprendizaje de la practica de la natación para niños entre los 5 y 10 años',
-            'address' => 'Avenida siempre viva 12 # 6-6'
+            'name' => 'Estadio municipal',
+            'description' => 'Estadio creado para la practica de Fútbol sala a nivel profecional',
+            'address' => 'Cra. 7 #845, Madrid, Cundinamarca',
+            'longitud' => '-74.26264429999999',
+            'latitud' => '4.7343337'
         ]);
     }
 }

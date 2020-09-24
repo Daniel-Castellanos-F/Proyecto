@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <label for="address">Dirección</label>
-                            <input id="search" type="text" name="address" class="form-control" value="{{ old('address')}}" required>
+                            <input id="search" type="text" name="address" class="form-control" value="{{ old('address') }}" required>
                             
                             <div>
                                 <!--<p id="latitud" name="latitud"></p> 

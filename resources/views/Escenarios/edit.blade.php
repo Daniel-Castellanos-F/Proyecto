@@ -51,8 +51,8 @@
                     </div>
                     <div class="col">
                         <div class="col">
-                        <div id="map-canvas" class="map-canvas" data-lat="{{ old('latitud', $Escenario->latitud) }}" 
-                          data-lng="{{ old('longitud', $Escenario->longitud) }}" style="height: 350px;">
+                        <div id="map-canvas" class="map-canvas" data-lat="{{ $Escenario->latitud }}" 
+                          data-lng="{{ $Escenario->longitud }}" style="height: 350px;">
                           <!-- Clave API-->
                           <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->                     
                         </div>                 
