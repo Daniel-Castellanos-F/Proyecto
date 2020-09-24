@@ -39,8 +39,6 @@ class User extends Authenticatable
             'password' => Hash::make($data['password']),
             'role' => 'usuario'
         ]);
-
-
     }    
 
 
