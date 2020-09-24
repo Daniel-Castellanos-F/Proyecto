@@ -40,7 +40,7 @@
                             <label for="address">Dirección</label>
                             <input id="search" type="text" name="address" class="form-control" value="{{ old('address')}}" required>
                             
-                            <div style="display: none;">
+                            <div>
                                 <!--<p id="latitud" name="latitud"></p> 
                                 <p id="longitud" name="longitud" ></p>-->
                                 <input id="latitud" name="latitud">
