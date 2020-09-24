@@ -33,7 +33,7 @@ class SendNotifications extends Command
         // schedule_date 2020-09-24
         // schedule_time 15:00:00
 
-        $headers = ['id', 'schedule_date', 'schedule_time', 'user_id'];
+        $headers = ['id', 'schedule_date', 'user_id', 'schedule_time'];
 
         $appointmentsTomorrow = $this->getAppointments24Hours($now->copy());
         $this->table($headers, $appointmentsTomorrow->toArray());

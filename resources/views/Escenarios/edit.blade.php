@@ -31,8 +31,10 @@
                            <input id="search" type="text" name="address" class="form-control" value="{{ old('address', $Escenario->address) }}" required>
 
                            <div style="display: none;">
-                              <p id="latitud"></p>
-                              <p id="longitud"></p>
+                              <!-- <p id="latitud"></p>
+                              <p id="longitud"></p> -->
+                              <input id="latitud" name="latitud">
+                              <input id="longitud" name="longitud">
                             </div>
                             <input type="button" value="Buscar Dirección" onClick="getCoords()" style="margin-top: 10px">
 
@@ -49,7 +51,8 @@
                     </div>
                     <div class="col">
                         <div class="col">
-                        <div id="map-canvas" class="map-canvas" data-lat="4.7343337" data-lng="-74.26264429999999" style="height: 350px;">
+                        <div id="map-canvas" class="map-canvas" data-lat="{{ old('latitud', $Escenario->latitud) }}" 
+                          data-lng="{{ old('longitud', $Escenario->longitud) }}" style="height: 350px;">
                           <!-- Clave API-->
                           <!-- AIzaSyBRvfhIw8v2pzzfRU6ZLGM9j-kJdjAWVJw-->                     
                         </div>                 
@@ -98,6 +101,7 @@
                         <tr>
                           <th scope="col">Dia</th>
                           <th scope="col">Activo</th>
+                          <th scope="col">Receso (min)</th>
                           <th scope="col">Mañana</th>
                           <th scope="col">Tarde</th>
                           <th scope="col"> </th>
@@ -117,7 +121,7 @@
 
                               <td>
                                 <select class="form-control" name="receso[]">
-                                    @for ($i=0; $i<60; $i+=10)
+                                    @for ($i=0; $i<=60; $i+=10)
 
                                       <option value="{{ $i }}"
                                        @if($i == $workDay->receso) selected @endif>
@@ -182,7 +186,7 @@
                                   </div>
                               </td>
 
-                              <td>
+                              <td style="display: none;">
                                 <select class="form-control" name="escenario_id[]">          
                                     <option value="{{ $Escenario->id }}">{{ $Escenario->id }}</option>
                                 </select> 

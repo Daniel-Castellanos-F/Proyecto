@@ -48,6 +48,9 @@ class EscenarioController extends Controller
     	$Escenario->name = $request->input('name');
     	$Escenario->description = $request->input('description');
     	$Escenario->address = $request->input('address');
+        $Escenario->longitud = $request->input('longitud');
+        $Escenario->latitud = $request->input('latitud');
+
     	$Escenario->save();
 
         $notification ='El Escenario se ha registrado correctamente.';
@@ -89,6 +92,8 @@ class EscenarioController extends Controller
     	$Escenario->name = $request->input('name');
     	$Escenario->description = $request->input('description');
     	$Escenario->address = $request->input('address');
+        $Escenario->longitud = $request->input('longitud');
+        $Escenario->latitud = $request->input('latitud');
     	$Escenario->save();
 
         $notification ='El Escenario se ha actualizado correctamente.';

@@ -12,8 +12,8 @@ if(address!='')
         if (status == 'OK')
           {
             // Mostramos las coordenadas obtenidas en el p con id coordenadas
-            document.getElementById("latitud").innerHTML='Latitud:   '+results[0].geometry.location.lat();
-            document.getElementById("longitud").innerHTML='Longitud: '+results[0].geometry.location.lng();
+            document.getElementById("latitud").value = results[0].geometry.location.lat();
+            document.getElementById("longitud").value = results[0].geometry.location.lng();
             // mio
             map = document.getElementById('map-canvas');
             lat = results[0].geometry.location.lat();

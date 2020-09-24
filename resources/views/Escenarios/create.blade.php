@@ -40,9 +40,11 @@
                             <label for="address">Dirección</label>
                             <input id="search" type="text" name="address" class="form-control" value="{{ old('address')}}" required>
                             
-                            <div>
-                                <p id="latitud"></p>
-                                <p id="longitud"></p>
+                            <div style="display: none;">
+                                <!--<p id="latitud" name="latitud"></p> 
+                                <p id="longitud" name="longitud" ></p>-->
+                                <input id="latitud" name="latitud">
+                                <input id="longitud" name="longitud">
                             </div>
                             <input type="button" value="Buscar Dirección" onClick="getCoords()" style="margin-top: 10px">
                         </div>
