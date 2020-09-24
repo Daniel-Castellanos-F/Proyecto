@@ -41,8 +41,8 @@
                             <input id="search" type="text" name="address" class="form-control" value="{{ old('address') }}" required>
                             
                             <div>
-                                <p id="latitud" name="latitud"></p> 
-                                <p id="longitud" name="longitud" ></p>
+                                <p id="latitud"></p> 
+                                <p id="longitud"></p>
                                 <!-- <input id="latitud" name="latitud">
                                 <input id="longitud" name="longitud"> -->
                             </div>
