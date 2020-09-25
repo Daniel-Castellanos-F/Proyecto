@@ -10,6 +10,6 @@ class EscenarioController extends Controller
 {
     public function index()
     {
-    	return Escenario::all(['id', 'name','description', 'longitud', 'latitud']);
+    	return Escenario::all(['id', 'name','description', 'address', 'longitud', 'latitud']);
     }
 }

@@ -30,7 +30,7 @@
                            <label for="address">Dirección</label>
                            <input id="search" type="text" name="address" class="form-control" value="{{ old('address', $Escenario->address) }}" required>
 
-                           <div>
+                           <div style="display: none;">
                               <!-- <p id="latitud"></p>
                               <p id="longitud"></p>-->
                               <input id="latitud" name="latitud">
