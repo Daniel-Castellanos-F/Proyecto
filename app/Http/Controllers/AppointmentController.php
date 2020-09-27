@@ -114,7 +114,6 @@ class AppointmentController extends Controller
         if ($saved)
             $appointment->user->sendFCM('Su reserva se ha confirmado!');
 
-        
         $notification = 'La reserva se ha Confirmado correctamente';
         return redirect('/appointments')->with(compact('notification'));
     }

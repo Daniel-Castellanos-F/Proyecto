@@ -68,10 +68,7 @@ class User extends Authenticatable
 
         return fcm()->to([
                 $this->device_token
-            ]) // array
-            ->priority('high')
-            ->timeToLive(0)
-            ->notification([
+            ])->notification([
                 'title' => config('app.name'),
                 'body' => $message
             ])->send();
