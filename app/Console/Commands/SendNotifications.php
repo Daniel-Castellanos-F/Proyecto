@@ -48,7 +48,7 @@ class SendNotifications extends Command
 
         foreach ($appointmentsNextHour as $appointment){
             $appointment->user->sendFCM('Tienes una reserva en 1 hora. Te esperamos.');
-            $this->info('Mensaje FCM enviado faltando 1h antes al usuario (ID):' . $appointment->user_id);
+            $this->info('Mensaje FCM enviado 1h antes al usuario (ID):' . $appointment->user_id);
         }  
     }
 
