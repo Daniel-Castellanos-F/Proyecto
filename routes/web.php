@@ -31,6 +31,11 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function() {
    	//Fcm
    	Route::post('/fcm/send', 'FirebaseController@sendAll');
 
+   	//reports
+   	Route::get('/charts/appointments/line','ChartController@appointments');
+   	Route::get('/charts/escenarios/column','ChartController@escenarios');
+   	Route::get('/charts/escenarios/column/data','ChartController@escenariosJson');
+   
 });
 Route::middleware('auth')->group(function() {
 	Route::get('/appointments/create','AppointmentController@create');

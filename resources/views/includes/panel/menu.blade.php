@@ -28,13 +28,13 @@
     <!-- Navigation -->
     <ul class="navbar-nav mb-md-3">
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="ni ni-istanbul"></i> Uso de Escenarios
+        <a class="nav-link" href="{{ url('/charts/appointments/line') }}">
+          <i class="ni ni-istanbul"></i> Frecuencia de reservas
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#l">
-          <i class="ni ni-compass-04"></i> Fechas
+        <a class="nav-link" href="{{ url('/charts/escenarios/column') }}">
+          <i class="ni ni-compass-04"></i> Uso de Escenarios
         </a>
       </li>
     </ul>

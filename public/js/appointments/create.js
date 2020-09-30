@@ -1,5 +1,6 @@
 let $hours, $iRadio, $long, $lat;
 
+
 const noHoursAlert = `<div class="alert alert-warning" role="alert">
               <strong>Lo sentimos!</strong> No se encontraron horas disponibles para este día 
             </div>`;
@@ -9,9 +10,8 @@ $(function () {
 
     const $date = $('#date');
     const $escenario = $('#escenario');
-  
+
     $date.change( () =>{
-      
       const escenarioId = $escenario.val();
       const selectedDate = $date.val();
       const url = `/api/schedule/hours?date=${selectedDate}&escenario_id=${escenarioId}`;
