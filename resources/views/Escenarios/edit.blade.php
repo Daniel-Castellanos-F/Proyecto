@@ -31,7 +31,7 @@
                        <label for="address">Dirección</label>
                        <input id="search" type="text" name="address" class="form-control" value="{{ old('address', $Escenario->address) }}" required>
 
-                        <div>
+                        <div style="display: none;">
                           <!-- <p id="latitud"></p>
                           <p id="longitud"></p>-->
                           <input id="latitud" name="latitud" value="{{ old('latitud', $Escenario->latitud) }}">
@@ -104,7 +104,7 @@
                       <tr>
                         <th scope="col">Dia</th>
                         <th scope="col">Activo</th>
-                        <th scope="col">Receso (min)</th>
+                        <th scope="col">Receso (min) -- Cupos</th>
                         <th scope="col">Mañana</th>
                         <th scope="col">Tarde</th>
                         <th scope="col"> </th>
@@ -124,14 +124,26 @@
 
                             <td>
                               <div class="row">
-                                <select class="form-control" name="receso[]">
-                                    @for ($i=0; $i<=60; $i+=10)
-                                      <option value="{{ $i }}"
-                                       @if($i == $workDay->receso) selected @endif>
-                                       {{ $i }}
-                                     </option>
-                                    @endfor  
-                                </select>
+                                <div class="col">
+                                  <select class="form-control" name="receso[]">
+                                      @for ($i=0; $i<=60; $i+=10)
+                                        <option value="{{ $i }}"
+                                         @if($i == $workDay->receso) selected @endif>
+                                         {{ $i }}
+                                       </option>
+                                      @endfor  
+                                  </select>
+                                </div>
+                                <div class="col">
+                                  <select class="form-control" name="cupos[]">
+                                      @for ($i=1; $i<=20; $i++)
+                                        <option value="{{ $i}}"
+                                         @if($i == $workDay->cupos) selected @endif>
+                                         {{ $i }}
+                                       </option>
+                                      @endfor  
+                                  </select>
+                                </div>   
                               </div> 
                             </td>
 

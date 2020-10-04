@@ -28,6 +28,7 @@ class ScheduleController extends Controller
     	$afternoon_end = $request->input('afternoon_end');
     	$escenario_id = $request->input('escenario_id');
         $receso = $request->input('receso');
+        $cupos = $request->input('cupos');
 
     	$errors = [];
 
@@ -52,7 +53,8 @@ class ScheduleController extends Controller
 
 			       	'afternoon_start' => $afternoon_start[$i],
 			       	'afternoon_end' => $afternoon_end[$i],
-                    'receso' => $receso[$i]
+                    'receso' => $receso[$i],
+                    'cupos' => $cupos[$i]
 	    		]
 	    	); 
 	    }

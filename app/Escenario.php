@@ -10,4 +10,12 @@ class Escenario extends Model
    {
    		return $this->hasMany(Appointment::class, 'escenario_id');
    }
+   public function attendedAppointments()
+   {
+   		return $this->asEscenarioAppointments()->where('status', 'Atendida');
+   }
+   public function cancelledAppointments()
+   {
+   		return $this->asEscenarioAppointments()->where('status', 'Cancelada');
+   }
 }

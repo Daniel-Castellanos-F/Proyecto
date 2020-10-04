@@ -26,13 +26,36 @@ const chart = Highcharts.chart('container', {
     series: []
 });
 
+let $start, $end;
+
 function fetchData(){
     // Fetch API
-    fetch('/charts/escenarios/column/data')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(myJson) {
-            console.log(myJson);
+    const startDate = $start.val();
+    const endDate = $end.val();
+
+    const url = `/charts/escenarios/column/data?start=${startDate}&end=${endDate}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data);
+            chart.xAxis[0].setCategories(data.categories);
+
+            if(chart.series.length > 0){
+                chart.series[1].remove();
+                chart.series[0].remove();
+            }
+
+
+            chart.addSeries(data.series[0]);
+            chart.addSeries(data.series[1]);
         });
 }
+
+$(function (){
+    $start = $('#startDate');
+    $end = $('#endDate');
+    fetchData();
+    $start.change(fetchData);
+    $end.change(fetchData);
+});

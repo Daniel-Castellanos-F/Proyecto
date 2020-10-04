@@ -50,15 +50,7 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="custom-control custom-control-alternative custom-checkbox">
-                                <input name="remember" class="custom-control-input" id=" remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="custom-control-label" for=" remember">
-                                    <span class="text-muted">Recordar mis datos</span>
-                                </label>
-                            </div>
-
-
+                            
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary my-4">Ingresar</button>
                             </div>

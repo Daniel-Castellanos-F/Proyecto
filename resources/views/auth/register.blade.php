@@ -62,7 +62,7 @@
                   </div>
                 </div>
 
-                <div class="row my-4">
+                <!--<div class="row my-4">
                   <div class="col-12">
                     <div class="custom-control custom-control-alternative custom-checkbox">
                       <input class="custom-control-input" id="customCheckRegister" type="checkbox">
@@ -71,7 +71,8 @@
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> -->
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary mt-4">Confirmar registro</button>
                 </div>

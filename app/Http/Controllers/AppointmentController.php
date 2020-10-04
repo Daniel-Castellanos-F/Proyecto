@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Escenario;
 use App\Appointment;
 use App\CancellAppointment;
+use App\WorkDay; // adiccionar workDay
 use App\Http\Requests\StoreAppointment;
 use Carbon\Carbon;
 use Validator;
@@ -59,7 +60,6 @@ class AppointmentController extends Controller
         } else {
             $intervals = null;
         }
-
         return view('appointments.create',compact('escenarios','intervals'));
     }
      
@@ -67,6 +67,7 @@ class AppointmentController extends Controller
     {
     			
         $created = Appointment::createForUsuario($request, auth()->id());
+        //dd($created); vista de los datos enviados para reserva
 
         if ($created)
             $notification  = 'La reserva se registro correctamente!'; 
