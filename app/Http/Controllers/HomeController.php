@@ -33,7 +33,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $minutes = $this->daysToMinutes(2);
+        $minutes = $this->daysToMinutes(1);
         $appointmentsByDay = Cache::remember('appointments_by_day', $minutes, function() {
             $results = Appointment::select([
                         DB::raw('DAYOFWEEK(schedule_date) as day'),

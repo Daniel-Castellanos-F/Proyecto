@@ -7,8 +7,6 @@
   @endif</h6>
 <ul class="navbar-nav">
   @include('includes.panel.menu.'.auth()->user()->role)
-
-
   <li class="nav-item">
     <a class="nav-link" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('formLogout').submit();">
       <i class="ni ni-key-25 text-info"></i> Cerrar sesión

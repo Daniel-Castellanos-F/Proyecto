@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function() {
 	Route::post('/appointments/{appointment}/cancel', 'AppointmentController@postCancel');
 
 	Route::post('/appointments/{appointment}/confirm', 'AppointmentController@postConfirm');
+	Route::post('/appointments/{appointment}/attended', 'AppointmentController@attended');
 
 	
 

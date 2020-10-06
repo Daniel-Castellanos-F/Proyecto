@@ -118,4 +118,16 @@ class AppointmentController extends Controller
         $notification = 'La reserva se ha Confirmado correctamente';
         return redirect('/appointments')->with(compact('notification'));
     }
+
+    public function attended(Appointment $appointment)
+    {
+        $appointment->status = 'Atendida';
+        $saved = $appointment->save();
+
+        if ($saved)
+            $appointment->user->sendFCM('La reserva se ha Atendido!');
+
+        $notification = 'La reserva se ha atendido correctamente';
+        return redirect('/appointments')->with(compact('notification'));
+    }
 }

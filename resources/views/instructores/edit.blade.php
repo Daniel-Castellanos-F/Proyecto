@@ -43,6 +43,18 @@
                    <input type="text" name="cedula" class="form-control" value="{{ old('cedula',$instructor->cedula)}}">
                  </div>
                  <div class="form-group">
+                   <label for="role">Rol</label>
+                   <select class="form-control" name="role">
+                     <option value="admin" @if('admin' == $instructor->role) selected @endif>Administrador</option>
+                     <option value="instructor" @if('instructor' == $instructor->role) selected @endif>Instructor</option>
+                     <option value="usuario" @if('usuario' == $instructor->role) selected @endif>Usuario</option>
+
+                   </select>
+
+
+                   <!-- <input type="text" name="role" class="form-control" value="{{ old('address',$instructor->role)}}"> -->
+                 </div>
+                 <div class="form-group">
                    <label for="address">Dirección</label>
                    <input type="text" name="address" class="form-control" value="{{ old('address',$instructor->address)}}">
                  </div>

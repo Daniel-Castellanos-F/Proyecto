@@ -96,14 +96,14 @@ class InstructorController extends Controller
             'name'=> 'required|min:8',
             'email'=> 'required|email',
             'cedula' => 'required|min:7',
+            'role' => 'required',
             'address' => 'nullable|min:5'
-
         ];
         $this->validate($request, $rules);
 
         $user = User::instructores()->findOrFail($id);
 
-        $data = $request->only('name','email','cedula','address');
+        $data = $request->only('name','email','cedula', 'role','address');
         $password = $request->input('password');
         if($password)
             $data['password'] = bcrypt($password);

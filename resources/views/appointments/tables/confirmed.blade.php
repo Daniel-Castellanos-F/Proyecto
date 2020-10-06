@@ -29,6 +29,11 @@
         <td> 
           @if ( $role == 'admin' )     
             <a class="btn btn-sm btn-info" title="Ver reserva" href="{{ url('/appointments/'.$appointment->id) }}">Ver</a>
+            
+            <form action="{{ url('/appointments/'.$appointment->id.'/attended') }}" method="POST" class="d-inline-block">
+                @csrf
+                <button class="btn btn-sm btn-success" type="submit" title="Atender reserva">Atendida</button>
+              </form>
           @endif  
             <a class="btn btn-sm btn-warning" title="Cancelar reserva" href="{{ url('/appointments/'.$appointment->id.'/cancel') }}">Cancelar</a> 
         </td>

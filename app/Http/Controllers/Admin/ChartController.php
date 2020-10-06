@@ -32,7 +32,7 @@ class ChartController extends Controller
     {
         $now = Carbon::now(); 
         $end = $now->format('Y-m-d');
-        $start = $now->subYear()->format('Y-m-d');
+        $start = $now->subMonth()->format('Y-m-d');
     	return view('charts.escenarios', compact('start', 'end'));
     }
 
