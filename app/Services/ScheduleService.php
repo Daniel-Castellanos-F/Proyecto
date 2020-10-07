@@ -9,11 +9,13 @@ use App\Appointment;
 class ScheduleService implements ScheduleServiceInterface
 {
   	public function isAvailableInterval($date, $escenarioId, Carbon $start){
- 
+        // pienso colocar un if para validar si el campo coousDips en igual a null si es asi darle el valor de WorkDay cupos
+        // si no 
   		// NO exxiste disponibilidad
 		$exists = Appointment::where('escenario_id', $escenarioId )
 				->where('schedule_date', $date )
 				->where('schedule_time', $start->format('H:i:s'))
+                ->where('cuposDisp','==', 0)
 				->exists();
 		return !$exists; // Estara disponbible si no hay fecha reservada
   	}
@@ -23,7 +25,7 @@ class ScheduleService implements ScheduleServiceInterface
         $workDay = WorkDay::where('active', true)
     	->where('day', $this->getDayFromDate($date))
     	->where('escenario_id', $escenarioId)
-        ->where('cupos', '!=', 0) // condicion donde cupos sea diferente de 0 (cero)
+        //->where('cupos', '!=', 0) // condicion donde cupos sea diferente de 0 (cero)
     	->first([
     		'morning_start', 'morning_end',
     		'afternoon_start', 'afternoon_end',

@@ -34,7 +34,7 @@ class StoreAppointment extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator){
-             $date = $this->input('schedule_date');
+            $date = $this->input('schedule_date');
             $escenarioId = $this->input('escenario_id'); 
             $schedule_time = $this->input('schedule_time'); 
 
