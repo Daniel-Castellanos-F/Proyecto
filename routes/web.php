@@ -9,6 +9,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::view('/policy', 'policy');
+Route::view('/policyMovil', 'policyMovil');
 
 Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function() {
 

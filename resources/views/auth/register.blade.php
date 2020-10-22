@@ -22,6 +22,14 @@
                     </div>    
                 @endif 
 
+              <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                        <span class="text-muted">A continuación, encontrara nuestra <a href="/policy"> Política de privacidad</a>, por favor leerla con atención ya que al confirmar el registro la está <strong>aceptando.</strong></span>
+                    </div>
+                  </div>
+              </div>   
+
               <form role="form" method="POST" action="{{ route('register') }}">
                 
                 @csrf
@@ -62,16 +70,7 @@
                   </div>
                 </div>
 
-                <!--<div class="row my-4">
-                  <div class="col-12">
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                      <label class="custom-control-label" for="customCheckRegister">
-                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                      </label>
-                    </div>
-                  </div>
-                </div> -->
+                
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary mt-4">Confirmar registro</button>
