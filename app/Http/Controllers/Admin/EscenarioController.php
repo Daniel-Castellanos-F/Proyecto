@@ -65,6 +65,7 @@ class EscenarioController extends Controller
         ];
 
         $workDays = WorkDay::where('escenario_id',$escen_id)->get();
+        //dd($workDays->toArray());
 
         if( count($workDays) > 0 ){
             $workDays->map(function ($workDay) {
@@ -74,12 +75,12 @@ class EscenarioController extends Controller
                 $workDay->afternoon_end = (new Carbon($workDay->afternoon_end))->format('g:i A');
                 return $workDay;
             });
-
-       }else{
+        //dd($workDays->toArray());   
+        }else{
            $workDays = collect();
            for($i=0 ; $i<7; ++$i)
                 $workDays->push(new WorkDay());
-       }
+        }
 
  
     	return view('Escenarios.edit', compact('workDays', 'days','Escenario'));
